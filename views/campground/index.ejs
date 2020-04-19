@@ -1,0 +1,52 @@
+<%- include ('../partial/header') -%>
+
+
+<div class="container">
+  <header class="jumbotron">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 col-sm-12">
+          <h1>Tour Moment Page</h1>
+          <p>This Site is for Posting your Tour experience you conducted</p>
+          <a class="btn btn-primary btn-large" href="/campground/new">
+            Create new one?</a>    
+        </div>  
+        <div class="col-md-3 col-sm-12">
+          <img src="/img/moment.svg" style="height: 100px;" alt="">
+        </div>
+      </div>
+      
+    </div>
+  </header>
+
+  <div class="container-fluid" id="main-links" style="margin-top: 30px;">
+    <div>
+      <div class="row ">
+        <% campground.forEach(campground => { %>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="card-deck text-center">
+            <div class="card shadow-sm p-3 mb-5 bg-white rounded" id="<%= campground.id %>" style="width: auto;">
+              <div class="card-body">
+                <img src="<%= campground.image %>" alt="" class="card-img-top" height="300px" />
+                <h5 class="card-title text-truncate"><%= campground.name %></h5>
+                <p class="card-text text-truncate">
+                  <a class="text-truncate" style="
+                      text-overflow: ellipsis;
+                      white-space: nowrap;
+                      overflow: hidden;
+                    " target="_blank">
+                  </a>
+                </p>
+                <a href="/campground/<%= campground.id %> " class="btn btn-primary">
+                  More Info
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include ('../partial/footer') -%>

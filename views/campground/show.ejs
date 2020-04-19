@@ -1,0 +1,69 @@
+<%- include ('../partial/header') -%>
+<div class="container">
+  <div class="lead">
+    <div class="row">
+
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body" id="showpage">
+            <img class="img-responsive rounded mx-auto d-block" style="display: block;
+            max-width: auto;
+            max-height:50rem;
+            width: auto;
+            height: auto;" src="<%= campground.image %> " alt="" />
+            <div class="caption-full">
+              <h4 class="float-right">$<%= campground.price %> /night</h4>
+              <h4 class="card-title"><a href=""><%= campground.name %></a></h4>
+              <p>
+                <i>Submitted by :
+                  <strong><%= campground.author.username %> </strong>
+                </i>
+              </p>
+              <% if(currentUser && campground.author.id.equals(currentUser.id)) { %>
+              <a href="/campground/<%= campground._id %>/edit" class="btn btn-warning">
+                Edit
+              </a>
+              <form style="display: inline;" action="/campground/<%= campground._id %>?_method=DELETE " method="POST">
+                <button class="btn btn-danger">Delete</button>
+              </form>
+              <% } %>
+              <p style="margin-top: 50px;" class="card-text">
+                " <%= campground.description %> "
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card card-body bg-light">
+          <div class="text-right">
+            <a class="btn btn-primary" href="/campground/<%= campground._id %>/comments/new">Add new Comment</a>
+          </div>
+          <hr />
+          <% campground.comments.forEach(comment => {%>
+          <div class="row">
+            <div class="col-md-12">
+              <strong><%= comment.author.username %> </strong>
+              <span class="float-right">10 days ago</span>
+              <p id="comentCont">- <%= comment.content %></p>
+              <% if(currentUser && comment.author.id.equals(currentUser.id)) { %>
+              <a href="/campground/<%= campground.id %>/comments/<%= comment.id %>/edit "
+                class="btn btn-sm btn-warning">
+                Edit
+              </a>
+              <form style="display: inline;"
+                action="/campground/<%= campground.id %>/comments/<%= comment.id %>?_method=DELETE" method="POST">
+                <button class="btn btn-sm btn-danger">
+                  Delete
+                </button>
+              </form>
+              <%} %>
+            </div>
+          </div>
+          <hr>
+          <% }); %>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include ('../partial/footer') -%>

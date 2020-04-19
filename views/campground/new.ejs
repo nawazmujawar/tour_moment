@@ -1,0 +1,28 @@
+<%- include ('../partial/header') -%>
+<div class="container" >
+    
+        <h1 style="text-align: center;">Create your YelpCamp</h1>
+     <div class="row">
+        <div class="" style="width: 30%; margin: 30px  auto;">
+                <form action="/campground" method="POST">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="name" placeholder="Title" />
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" name="price" placeholder="Price" min="1.00" step="0.01" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="image"placeholder="Image URL" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="description"placeholder="Description" />
+                    </div>
+                    <div class="form-group">
+                        <input class="btn btn-lg btn-primary btn-block" type="submit" />
+                    </div>
+                </form>
+                <a href="/campground">GO Back</a>
+            </div>
+    </div>
+</div>
+<%- include ('../partial/footer') -%>

@@ -1,0 +1,53 @@
+img{
+    width: 100%;
+ 
+}
+.img-responsive{
+    padding: 0;
+}
+
+#showpage{
+    padding: 0;
+}
+.caption-full{
+    padding: 10px;
+}
+
+#delete-from{
+    display: inline;
+}
+#loginCard{
+    width: 100%; 
+    border: none; 
+
+}
+.navbar-brand{
+    font-size: xx-large;
+    font-family: 'Lobster', cursive;
+}
+
+.card-text{
+    font-size: 25px;
+    font-family: 'Bree Serif', serif;
+}
+.card-title{
+    font-size: 35px;
+    text-transform: capitalize;
+    font-family: 'Inter', sans-serif;
+}
+.card-title.text-truncate{
+    font-size: 25px;
+    text-transform: capitalize;
+    font-family: 'Inter', sans-serif;
+}
+
+#comentCont{
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+}
+
+.nav-link{
+    font-size: 16px;
+    font-family: 'Lobster', cursive;
+
+}
