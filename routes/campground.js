@@ -41,7 +41,7 @@ router.post("/", authMidleware.isLoggedIn, function (req, res) {
       console.log(err);
     } else {
       // and this will redirect to "/campground" that is of get
-      req.flash("success", "Campground Add");
+      req.flash("success", "Story added..");
       res.redirect("/campground");
     }
   });
@@ -87,6 +87,7 @@ router.post("/:id", authMidleware.checkOwnerShip, function (req, res) {
     if (err) {
       console.log(err);
     } else {
+      req.flash("success", "Deleted Successfully...");
       res.redirect("/campground/" + req.params.id);
     }
   });
@@ -98,6 +99,7 @@ router.delete("/:id", authMidleware.checkOwnerShip, function (req, res) {
     if (err) {
       console.log(err);
     } else {
+      req.flash("success", "Deleted Successfully...");
       res.redirect("/campground");
     }
   });
