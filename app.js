@@ -17,10 +17,10 @@ var campgroundRoute = require("./routes/campground"),
   commentRoute = require("./routes/comment"),
   indexRoute = require("./routes/index");
 
-mongoose.connect(
-  "mongodb+srv://nawaz:nawaz123@tourmoment-y4tlf.mongodb.net/test?retryWrites=true&w=majority",
-  { useNewUrlParser: true, useUnifiedTopology: true }
-);
+mongoose.connect(process.env.DB_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 app.use(express.static(__dirname + "/public"));
 app.use(express.static(__dirname + "/img"));
@@ -33,7 +33,7 @@ app.use(flash());
 //PASSPORT Config.
 app.use(
   require("express-session")({
-    secret: "hello world",
+    secret: process.env.SECRET_KEY,
     resave: false,
     saveUninitialized: false,
   })
